@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Subway Surfers Online – Gameplay, Controls & Tips</title>
+<meta name="description" content="Play Subway Surfers online and learn its controls, obstacle strategies, coin collection tips, power-ups, and practical gameplay tips.">
+<meta name="keywords" content="Subway Surfers, Subway Surfers online, Subway Surfers controls, Subway Surfers gameplay, endless runner tips">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://YOUR-DOMAIN.example/subway-surfers/">
+<meta name="theme-color" content="#270b27">
+
+<style>
+:root {
+  --bg: #160817;
+  --panel: #271329;
+  --panel2: #321738;
+  --border: #573050;
+  --text: #fff4ff;
+  --muted: #d2bdd3;
+  --pink: #ff4a91;
+  --purple: #a855f7;
+  --yellow: #ffdb36;
+  --cyan: #29d9ff;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top, #451644 0, transparent 45%),
+    var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+a { color: var(--cyan); }
+a:hover { color: var(--yellow); }
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(100deg, #f52f69, #a52be8, #5428bc);
+  box-shadow: 0 5px 24px #0005;
+}
+
+.header-inner {
+  width: min(1180px, calc(100% - 30px));
+  min-height: 72px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border: 2px solid white;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #ffe84b, #ff8a20);
+  color: #49205d;
+  font-size: 1.7rem;
+  text-shadow: 1px 2px #fff7;
+}
+
+.logo-text {
+  display: block;
+  color: #fff;
+  font-weight: 1000;
+  letter-spacing: -1px;
+  text-shadow: 2px 3px 0 #48205f;
+}
+
+.logo-text span { color: #ffe33d; }
+
+.header-note {
+  font-size: .86rem;
+  font-weight: 700;
+  color: white;
+  text-align: right;
+}
+
+.container {
+  width: min(1180px, calc(100% - 30px));
+  margin: 24px auto 45px;
+}
+
+.game-card,
+.card {
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  background: var(--panel);
+  box-shadow: 0 12px 35px #0003;
+}
+
+.game-heading {
+  padding: 17px 22px;
+  background: linear-gradient(100deg, #462044, #2a1532);
+  border-bottom: 1px solid var(--border);
+}
+
+.game-heading h1 {
+  margin: 0 0 3px;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+.game-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.game-frame-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(400px, 65vw, 690px);
+  background: #0e3064;
+}
+
+.game-frame-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #0e3064;
+}
+
+.game-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 20px;
+  background: #211027;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(100deg, var(--pink), var(--purple));
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: white;
+  filter: brightness(1.1);
+}
+
+.rating-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  border: 1px solid #78522a;
+  border-radius: 17px;
+  background: linear-gradient(120deg, #33203a, #26152c);
+  margin-bottom: 24px;
+}
+
+.rating-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.rating-card p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin: 5px 0;
+}
+
+.star {
+  border: 0;
+  padding: 0 2px;
+  background: transparent;
+  color: #88728c;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1.3;
+}
+
+.star.active,
+.star:hover {
+  color: var(--yellow);
+}
+
+.star:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.rating-number {
+  color: var(--yellow);
+  font-weight: 800;
+}
+
+.rating-status {
+  min-height: 25px;
+  color: var(--cyan);
+  font-size: .85rem;
+}
+
+.review-meta {
+  margin-top: 5px;
+  color: #c7b0ca;
+  font-size: .8rem;
+}
+
+.card {
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.card h2 {
+  margin: 0 0 14px;
+  color: #ff77b3;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  line-height: 1.3;
+}
+
+.card h3 {
+  margin: 24px 0 8px;
+  color: var(--yellow);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.card p { margin: 0 0 15px; }
+.card p:last-child { margin-bottom: 0; }
+
+.toc {
+  background: linear-gradient(130deg, #311638, #251329);
+}
+
+.toc ol { padding-left: 23px; }
+.toc li { margin: 5px 0; }
+
+.toc a {
+  color: #f7d7ff;
+  text-decoration: none;
+}
+
+.toc a:hover { color: var(--yellow); }
+
+.tip {
+  margin: 20px 0;
+  padding: 16px 18px;
+  border-left: 5px solid var(--yellow);
+  border-radius: 9px;
+  background: #422a24;
+  color: #fff1d1;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 18px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  min-width: 470px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: #51204c;
+  color: #ffe1f2;
+}
+
+td { background: #2c1731; }
+tbody tr:nth-child(even) td { background: #351b3b; }
+tbody tr:last-child td { border-bottom: 0; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin: 20px 0;
+}
+
+.info-item {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #321a38;
+}
+
+.info-item strong {
+  display: block;
+  color: var(--cyan);
+}
+
+.info-item span {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.faq-item {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item:first-of-type { padding-top: 0; }
+.faq-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.faq-item h3 { margin: 0 0 8px; color: var(--cyan); }
+
+.related {
+  padding: 22px;
+  border: 1px solid #76502b;
+  border-radius: 16px;
+  background: linear-gradient(110deg, #422039, #2a1835);
+}
+
+.related h2 {
+  margin: 0 0 6px;
+  color: var(--yellow);
+}
+
+.related p { margin: 0 0 15px; color: var(--muted); }
+
+.footer {
+  margin-top: 40px;
+  padding: 36px 20px;
+  border-top: 3px solid #a82b92;
+  background: linear-gradient(135deg, #170719, #2c0c31 60%, #190923);
+  color: #d8c2dc;
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: 8px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-shadow: 2px 2px #a32c91;
+}
+
+.footer p { margin: 7px 0; font-size: .88rem; }
+.footer a { color: #ff8fc4; }
+
+@media (max-width: 600px) {
+  .header-inner { min-height: 62px; }
+  .brand { font-size: .95rem; }
+  .header-note { max-width: 105px; font-size: .72rem; }
+  .container { width: calc(100% - 20px); margin-top: 14px; }
+  .game-frame-wrap { height: 520px; }
+  .rating-card { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .card { padding: 20px 16px; }
+  .game-actions { padding: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Subway Surfers Guide">
+      <span class="logo" aria-hidden="true">🚆</span>
+      <span class="logo-text">Subway <span>Surfers</span> Guide</span>
+    </a>
+    <div class="header-note">Run · Dodge · Collect · Repeat</div>
+  </div>
+</header>
+
+<main class="container" id="top">
+
+  <!-- GAME FIRST: no hero section or right sidebar -->
+  <section class="game-card" id="play">
+    <div class="game-heading">
+      <h1>Subway Surfers Online</h1>
+      <p>Play the game and explore the controls and gameplay guide below.</p>
+    </div>
+
+    <div class="game-frame-wrap">
+      <iframe
+        id="gameFrame"
+        src="https://gamesss.funox.com/gamelib/5dd312fa-015f-11ea-ad56-9cb6d0d995f7/fd59bd04-3cce-4336-ab00-b54f7c5a97b0/index.html"
+        title="Subway Surfers browser game"
+        allow="fullscreen; autoplay; gamepad"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+
+    <div class="game-actions">
+      <span class="muted">Tip: Click inside the game before using keyboard controls.</span>
+      <button class="button" id="fullscreenBtn" type="button">⛶ Fullscreen</button>
+    </div>
+  </section>
+
+  <!-- Functional local-browser rating; no fabricated starting score -->
+  <section class="rating-card" aria-label="Rate this game">
+    <div>
+      <h2>Rate Your Gameplay Experience</h2>
+      <p>Select one to five stars. Your selection is saved in this browser.</p>
+      <div class="review-meta">Reviewed by our games team · Updated OCT 10, 2026</div>
+    </div>
+
+    <div>
+      <div class="stars" id="starButtons" role="group" aria-label="Choose a rating">
+        <button class="star" type="button" data-rating="1" aria-label="1 star">★</button>
+        <button class="star" type="button" data-rating="2" aria-label="2 stars">★</button>
+        <button class="star" type="button" data-rating="3" aria-label="3 stars">★</button>
+        <button class="star" type="button" data-rating="4" aria-label="4 stars">★</button>
+        <button class="star" type="button" data-rating="5" aria-label="5 stars">★</button>
+      </div>
+      <div class="rating-number" id="ratingSummary">No ratings yet</div>
+      <div class="rating-status" id="ratingStatus" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <nav class="card toc" aria-label="Table of contents">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#about">What Is Subway Surfers?</a></li>
+      <li><a href="#how-to-play">How to Play</a></li>
+      <li><a href="#controls">Controls</a></li>
+      <li><a href="#obstacles">Avoiding Obstacles</a></li>
+      <li><a href="#coins">Coins and Rewards</a></li>
+      <li><a href="#powerups">Power-Ups</a></li>
+      <li><a href="#tips">Gameplay Tips</a></li>
+      <li><a href="#mistakes">Common Mistakes</a></li>
+      <li><a href="#faq">FAQs</a></li>
+    </ol>
+  </nav>
+
+  <article class="card">
+
+    <section id="about">
+      <h2>What Is Subway Surfers?</h2>
+      <p>
+        Subway Surfers is an endless-runner arcade game in which players guide
+        a character along railway tracks while avoiding trains and other
+        obstacles. The objective is to keep running for as long as possible,
+        collect items along the route, and improve your score. Its colorful
+        environments and simple movement system make it approachable for
+        beginners, while increasing speed and obstacle combinations create
+        a challenge as a run continues.
+      </p>
+      <p>
+        The main skills are observation, timing, and making quick decisions.
+        You must decide when to change lanes, jump over an obstacle, or slide
+        underneath one. Characters, missions, power-ups, and events may vary
+        by release, so check the version you are playing for its available
+        features.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-item"><strong>Genre</strong><span>Endless runner and arcade</span></div>
+        <div class="info-item"><strong>Main objective</strong><span>Avoid obstacles and keep running</span></div>
+        <div class="info-item"><strong>Core skills</strong><span>Timing and observation</span></div>
+        <div class="info-item"><strong>Collectibles</strong><span>Coins and available power-ups</span></div>
+      </div>
+    </section>
+
+    <section id="how-to-play">
+      <h2>How to Play Subway Surfers</h2>
+      <p>
+        Start by watching the track ahead of your character. The railway
+        contains multiple lanes, and each lane can present a different
+        obstacle. Move toward an open route early instead of waiting until
+        a train or barrier is immediately in front of you.
+      </p>
+
+      <h3>Change lanes with purpose</h3>
+      <p>
+        Moving left or right helps you avoid trains and find a safer path.
+        Avoid switching lanes repeatedly without a reason. Look ahead, select
+        a route, and change direction again only when the next obstacle
+        requires it.
+      </p>
+
+      <h3>Jump and slide at the right moment</h3>
+      <p>
+        Jumping can clear low barriers and help reach items placed above the
+        track. Sliding or rolling is useful for passing under suitable
+        overhead obstacles. Check what comes after each obstacle before
+        making a movement, because a safe landing can be just as important
+        as clearing the first hazard.
+      </p>
+
+      <h3>Prioritize survival</h3>
+      <p>
+        Coin trails can tempt you toward dangerous lanes. Do not follow every
+        trail automatically. If collecting an item places you directly in
+        front of a train or leaves no room to react, choose the safer route.
+        Consistent runs give you more opportunities to collect rewards later.
+      </p>
+
+      <div class="tip">
+        <strong>Beginner tip:</strong> Practise a few runs without focusing on
+        coins. Learn lane changes, jumps, and slides first, then add collection
+        goals when the controls feel comfortable.
+      </div>
+    </section>
+
+    <section id="controls">
+      <h2>Subway Surfers Controls</h2>
+      <p>
+        The exact controls depend on the version and device. These are common
+        controls used by many keyboard and touchscreen versions.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Action</th><th>Keyboard</th><th>Touchscreen</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Move left</td><td>Left arrow</td><td>Swipe left</td></tr>
+            <tr><td>Move right</td><td>Right arrow</td><td>Swipe right</td></tr>
+            <tr><td>Jump</td><td>Up arrow</td><td>Swipe up</td></tr>
+            <tr><td>Slide or roll</td><td>Down arrow</td><td>Swipe down</td></tr>
+            <tr><td>Pause</td><td>Version-dependent</td><td>Tap the menu control</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        On a computer, click inside the game before pressing keys if the
+        controls do not respond. On a phone or tablet, make deliberate swipes
+        and keep enough space around the screen to avoid accidental gestures.
+        If the embedded version displays its own instructions, follow those
+        instructions first.
+      </p>
+    </section>
+
+    <section id="obstacles">
+      <h2>How to Avoid Obstacles</h2>
+      <h3>Trains</h3>
+      <p>
+        Trains can occupy most or all of a lane. Move to a clear lane early
+        whenever possible. Do not assume a gap beside a train will remain
+        safe as you approach it; check the surrounding track before committing
+        to a movement.
+      </p>
+
+      <h3>Low barriers</h3>
+      <p>
+        Low barriers are commonly cleared by jumping. Before jumping, check
+        the space beyond the barrier. A successful jump can still lead to a
+        collision if another obstacle blocks the landing area.
+      </p>
+
+      <h3>Overhead obstacles</h3>
+      <p>
+        Some obstacles require sliding or rolling underneath them. Jumping
+        into an overhead barrier can end a run, so learn to recognize the
+        obstacle shape and select the appropriate movement.
+      </p>
+
+      <h3>Multiple obstacles together</h3>
+      <p>
+        When a section combines trains and barriers, plan one movement at a
+        time. Find a clear lane first, then decide whether a jump or slide is
+        needed. Avoid rushing into a narrow opening without checking what
+        follows it.
+      </p>
+    </section>
+
+    <section id="coins">
+      <h2>Coins and Rewards</h2>
+      <p>
+        Coins are common collectibles used for progression and purchases in
+        versions that support them. They may appear in lines or trails along
+        the track. Follow a trail when the route is safe, but do not risk a
+        promising run just to collect the last coin.
+      </p>
+
+      <h3>Complete available missions</h3>
+      <p>
+        Missions and daily objectives can add goals beyond distance. Depending
+        on the version, tasks may involve collecting items, reaching a score,
+        or performing particular actions. Review the available objectives
+        before starting if you want to focus your run on a specific task.
+      </p>
+
+      <h3>Spend currency thoughtfully</h3>
+      <p>
+        If your version offers upgrades, characters, boards, or other
+        purchases, read each item's description before spending collected
+        currency. Choose items that fit your goals rather than purchasing
+        something simply because it is available.
+      </p>
+    </section>
+
+    <section id="powerups">
+      <h2>Understanding Power-Ups</h2>
+      <p>
+        Power-ups can provide temporary benefits, but their availability and
+        effects depend on the version you are playing. Read the in-game
+        descriptions to confirm what each item does.
+      </p>
+
+      <h3>Coin magnet</h3>
+      <p>
+        A coin magnet can attract nearby coins, allowing you to focus more
+        attention on avoiding obstacles instead of moving toward every item.
+      </p>
+
+      <h3>Jetpack</h3>
+      <p>
+        In versions that include a jetpack, the character can travel above
+        the track for a limited time and collect items along the route. Be
+        ready to resume normal obstacle avoidance when the effect ends.
+      </p>
+
+      <h3>Score multipliers and boards</h3>
+      <p>
+        Score multipliers can increase points under the game's scoring rules.
+        Some versions also offer hoverboards or similar items with temporary
+        protective effects. Check the displayed description and duration,
+        and do not treat a power-up as a substitute for careful movement.
+      </p>
+    </section>
+
+    <section id="tips">
+      <h2>Practical Tips for Better Runs</h2>
+      <ul>
+        <li><strong>Look ahead:</strong> Spot upcoming obstacles early so you have more time to react.</li>
+        <li><strong>Choose a safe lane:</strong> The centre lane is not always safest; judge the route ahead.</li>
+        <li><strong>Use deliberate movements:</strong> Avoid repeated lane changes that do not solve a problem.</li>
+        <li><strong>Practise timing:</strong> Learn when to jump and slide instead of reacting at the last moment.</li>
+        <li><strong>Set one goal:</strong> Focus on survival, a mission, or safe coin collection during each run.</li>
+        <li><strong>Review mistakes:</strong> Think about what ended the run and try to correct one error next time.</li>
+        <li><strong>Stay comfortable:</strong> Use a stable device position and controls that you can operate accurately.</li>
+      </ul>
+
+      <p>
+        Improvement comes from making consistent decisions rather than trying
+        to perform every movement as quickly as possible. Build your skills
+        gradually and increase the challenge as you become more comfortable.
+      </p>
+    </section>
+
+    <section id="mistakes">
+      <h2>Common Beginner Mistakes</h2>
+      <ul>
+        <li>Following every coin trail even when the route is dangerous.</li>
+        <li>Reacting only when an obstacle is directly in front of the character.</li>
+        <li>Jumping without checking the landing area.</li>
+        <li>Changing lanes several times without checking the next obstacle.</li>
+        <li>Relying on power-ups instead of paying attention to the track.</li>
+        <li>Assuming that every browser version uses exactly the same controls.</li>
+      </ul>
+      <p>
+        Correcting one mistake at a time can make your runs more consistent.
+        If the game feels difficult, return to basic movement practice before
+        trying to beat a high score.
+      </p>
+    </section>
+
+    <section>
+      <h2>Playing on a Computer or Mobile Device</h2>
+      <p>
+        Browser versions may support keyboard input, touchscreen gestures,
+        or other controls depending on the host. If the game does not respond,
+        click inside the game frame and check the instructions. A modern
+        browser and a stable connection can help with loading, although
+        third-party content may still be blocked by browser or host settings.
+      </p>
+      <p>
+        On mobile devices, make clear swipes and avoid accidental browser
+        navigation. If performance is slow, close unnecessary applications
+        and check your connection. If the embedded game does not load, visit
+        the provider's game page to check whether it is available there.
+      </p>
+      <p>
+        You can also visit the related
+        <a href="https://funox.com/en/preview/6a1b0c7a08f436d50d25c782"
+           target="_blank" rel="noopener noreferrer">Subway surfers</a>
+        page to check the game's available access options.
+      </p>
+    </section>
+
+    <section>
+      <h2>Final Gameplay Advice</h2>
+      <p>
+        Subway Surfers combines simple controls with a growing challenge.
+        Learn how to move between lanes, recognize obstacles, and use jumps
+        and slides correctly. Collect coins when the path is safe, understand
+        the power-ups in your version, and use each run as an opportunity
+        to improve.
+      </p>
+      <p>
+        This is an independent gameplay guide and is not affiliated with or
+        endorsed by the game's developers or publishers.
+      </p>
+    </section>
+  </article>
+
+  <section class="card" id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>What is the goal of Subway Surfers?</h3>
+      <p>The goal is to keep running, avoid collisions, collect available items, and improve your score.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What are the common controls?</h3>
+      <p>Common controls are left and right to change lanes, up to jump, and down to slide. Controls vary by version.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How can I improve my score?</h3>
+      <p>Watch the track ahead, avoid unnecessary movements, practise obstacle timing, and aim for longer, safer runs.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Why is the embedded game not loading?</h3>
+      <p>The host may be unavailable or may restrict embedding. Try the provider's game page or use a host that permits iframe embedding.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is the star rating a live shared rating?</h3>
+      <p>The stars let you submit a rating and save your choice in your current browser. A shared rating across visitors requires a server-side rating system.</p>
+    </div>
+  </section>
+
+  <section class="related">
+    <h2>Ready for Another Run?</h2>
+    <p>Review the controls, choose a safe route, and practise your timing.</p>
+    <a class="button" href="#play">Back to Game ↑</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">Subway Surfers Guide</div>
+  <p>Independent gameplay information, controls, and tips.</p>
+  <p>
+    <a href="#top">Back to top</a> ·
+    <a href="#controls">Controls</a> ·
+    <a href="#faq">FAQs</a>
+  </p>
+  <p>Not affiliated with or endorsed by the game's developers or publishers.</p>
+</footer>
+
+<script>
+/* Fullscreen button */
+const gameFrame = document.getElementById("gameFrame");
+const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+fullscreenBtn.addEventListener("click", async () => {
+  try {
+    if (gameFrame.requestFullscreen) {
+      await gameFrame.requestFullscreen();
+    } else if (gameFrame.webkitRequestFullscreen) {
+      gameFrame.webkitRequestFullscreen();
+    } else {
+      alert("Fullscreen is not supported by this browser.");
+    }
+  } catch (error) {
+    alert("Fullscreen could not be opened. Use the game's own fullscreen control if available.");
+  }
+});
+
+/*
+  Functional local rating:
+  - No preset score or fake vote count.
+  - Saves this visitor's rating in this browser.
+  - This is NOT a shared server-wide rating.
+*/
+const ratingStorageKey = "subwaySurfersVisitorRating";
+const starButtons = [...document.querySelectorAll(".star")];
+const ratingSummary = document.getElementById("ratingSummary");
+const ratingStatus = document.getElementById("ratingStatus");
+
+function getSavedRating() {
+  try {
+    const value = Number(localStorage.getItem(ratingStorageKey));
+    return Number.isInteger(value) && value >= 1 && value <= 5 ? value : 0;
+  } catch (error) {
+    return 0;
+  }
+}
+
+function displayRating(rating) {
+  starButtons.forEach((button) => {
+    const value = Number(button.dataset.rating);
+    button.classList.toggle("active", value <= rating);
+    button.setAttribute("aria-pressed", value === rating ? "true" : "false");
+  });
+}
+
+function initializeRating() {
+  const savedRating = getSavedRating();
+  displayRating(savedRating);
+
+  if (savedRating) {
+    ratingSummary.textContent = "Your rating: " + savedRating + "/5";
+    ratingStatus.textContent = "Your rating is saved in this browser.";
+  } else {
+    ratingSummary.textContent = "No ratings yet";
+    ratingStatus.textContent = "Select a star to rate this game.";
+  }
+}
+
+starButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const rating = Number(button.dataset.rating);
+
+    try {
+      localStorage.setItem(ratingStorageKey, String(rating));
+      displayRating(rating);
+      ratingSummary.textContent = "Your rating: " + rating + "/5";
+      ratingStatus.textContent = "Thanks! Your rating is saved in this browser.";
+    } catch (error) {
+      displayRating(rating);
+      ratingSummary.textContent = "Your rating: " + rating + "/5";
+      ratingStatus.textContent = "Rating selected, but browser storage is unavailable.";
+    }
+  });
+});
+
+initializeRating();
+</script>
+
+</body>
+</html>
